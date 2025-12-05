@@ -42,7 +42,7 @@ app.add_middleware(
 
 @app.get("/", response_class=HTMLResponse)
 async def read_root():
-    with open("templates/index.html", "r") as f:
+    with open("templates/index.html", "r", encoding="utf-8") as f:
         return HTMLResponse(content=f.read())
 
 @app.get("/health")

@@ -6,3 +6,5 @@ PyPDF2
 python-dotenv
 ollama
 huggingface_hub
+Pillow
+pytesseract
