@@ -4,6 +4,7 @@ from fastapi.responses import JSONResponse, HTMLResponse
 from fastapi.staticfiles import StaticFiles
 import os
 import sys
+import pathlib
 
 # Add app directory to path
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'app'))
@@ -26,7 +27,10 @@ app = FastAPI(
     version="3.0.0"
 )
 
-app.mount("/static", StaticFiles(directory="static"), name="static")
+# Mount static files only if directory exists
+static_dir = pathlib.Path("static")
+if static_dir.exists():
+    app.mount("/static", StaticFiles(directory="static"), name="static")
 
 app.add_middleware(
     CORSMiddleware,
