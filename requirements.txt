@@ -1,0 +1,9 @@
+fastapi
+uvicorn
+python-multipart
+requests
+PyPDF2
+python-dotenv
+ollama
+huggingface_hub
+gunicorn
